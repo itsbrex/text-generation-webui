@@ -100,7 +100,7 @@ jobs:
       - name: Build Package
         shell: bash
         run: |
-            rm -rf .git cmd* update_wizard* start_wsl.bat wsl.sh Colab-TextGen-GPU.ipynb docker
+            rm -rf .git cmd* update_wizard* Colab-TextGen-GPU.ipynb docker
 
             # Define common variables
             AVX_SUPPORT="${{ matrix.avx }}"
@@ -136,6 +136,7 @@ jobs:
             else
                 BASE_REQ_FILE="requirements/portable/requirements_vulkan_noavx2.txt"
             fi
+            REQ_FILE="$BASE_REQ_FILE"
 
             cd text-generation-webui
 
